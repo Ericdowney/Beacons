@@ -7,30 +7,28 @@
 //
 
 import UIKit
-import XCTest
+import Quick
+import Nimble
 
-class GeoFencingTutorialTests: XCTestCase {
+class GeoFencingTutorialTests: QuickSpec {
     
     override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        println("I'm run BEFORE every test.")
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+        println("I'm run AFTER every test.")
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
+    override func spec() {
+        describe("The first test") {
+            it("should be true") {
+                expect(true).to(beTrue())
+            }
+            
+            it("should be false") {
+                expect(false).to(beFalse())
+            }
         }
     }
-    
 }
